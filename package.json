@@ -16,6 +16,9 @@
     "url": "https://github.com/eduardo305/api-planoinvest/issues"
   },
   "homepage": "https://github.com/eduardo305/api-planoinvest#readme",
+  "engines": {
+    "node": "4.4.4"
+  },
   "devDependencies": {
     "nodemon": "^1.9.2"
   },
