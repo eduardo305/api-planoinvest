@@ -7,6 +7,7 @@ const userRouting = require('./routes/userRouting');
 const authRouting = require('./routes/authRouting');
 const config = require('./config/config');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const app = express();
 
@@ -14,6 +15,7 @@ if (mongoose.connection.readyState === 0) {
   mongoose.connect(config.mongo.uri, config.mongo.options);
 }
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
