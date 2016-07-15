@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const appRouting = require('./routes/appRouting');
 const userRouting = require('./routes/userRouting');
+const authRouting = require('./routes/authRouting');
 const config = require('./config/config');
 const mongoose = require('mongoose');
 
@@ -16,6 +17,7 @@ if (mongoose.connection.readyState === 0) {
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.use('/api/v1/auth/', authRouting);
 app.use('/api/v1/users/', userRouting);
 app.use(appRouting);
 
