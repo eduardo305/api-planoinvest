@@ -15,8 +15,16 @@ module.exports = {
   },
 
   signup: (request, response, next) => {
-    const email = request.body.email;
-    const password = request.body.password;
+    const { 
+      email, 
+      password, 
+      firstName, 
+      lastName,
+      phone, 
+      address, 
+      state, 
+      city 
+    } = request.body.user;
 
     if (!email || !password) {
       return response.status(422).send({ error: 'You must provide email and password'});
@@ -30,8 +38,14 @@ module.exports = {
       }
 
       const user = new User({
-        email: email,
-        password: password
+        email,
+        password,
+        firstName,
+        lastName,
+        phone,
+        address,
+        state,
+        city
       });
 
       user.save((error) => {
